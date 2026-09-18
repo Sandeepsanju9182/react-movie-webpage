@@ -57,7 +57,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 25px;
-    justify-content: center;
+    justify-items: center;
     margin-top: 50px;
 
 }

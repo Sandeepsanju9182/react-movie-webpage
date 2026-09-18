@@ -3,6 +3,8 @@ import "./App.css";
 import mockMovies from "./movies_data/mockMovies";
 import MovieCard from './components/MovieCard';
 import MovieModel from './components/MovieModel';
+import Header from './components/Header';
+
 
 const MOVIES_INITIAL = 20;
 const MOVIES_PER_LOAD = 10;
@@ -24,6 +26,9 @@ const App = () => {
 
   return (
     <div className="app">
+
+      <Header/>
+
       <div className="movie-list">
         {displayedMovies.map((movie) => (
           <MovieCard 
