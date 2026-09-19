@@ -13,6 +13,8 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   const [visibleCount, setVisibleCount] = useState(MOVIES_INITIAL);
   const [modelMovie, setModelMovie] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+
 
   useEffect(() => {
     setMovies(mockMovies);
@@ -22,12 +24,14 @@ const App = () => {
     setVisibleCount((prev) => prev + MOVIES_PER_LOAD);
   };
 
-  const displayedMovies = movies.slice(0, visibleCount);
+  const filteredMovies = movies.filter((movie) => movie.title.toLowerCase().includes(searchTerm.toLowerCase()));
+
+  const displayedMovies = filteredMovies.slice(0, visibleCount);
 
   return (
     <div className="app">
 
-      <Header/>
+      <Header searchTerm= {searchTerm} setSearchTerm = {setSearchTerm} />
 
       <div className="movie-list">
         {displayedMovies.map((movie) => (
