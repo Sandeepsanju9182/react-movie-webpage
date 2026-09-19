@@ -1,7 +1,7 @@
 import React from 'react'
 import "./styles/Header.css";
 
-const Header = ({searchTerm, setSearchTerm}) => {
+const Header = ({searchTerm, setSearchTerm, sortYear, setSortYear}) => {
   return (
     <header>
         <div className='logo'>
@@ -13,7 +13,9 @@ const Header = ({searchTerm, setSearchTerm}) => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
              />
-            <select>
+            <select 
+            value={sortYear || ""} 
+            onChange={(e) => setSortYear(e.target.value)}>
                 <option value="">sort by year</option>
                 <option value="asc">year Ascending</option>
                 <option value="desc">year Desending</option>

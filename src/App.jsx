@@ -14,7 +14,7 @@ const App = () => {
   const [visibleCount, setVisibleCount] = useState(MOVIES_INITIAL);
   const [modelMovie, setModelMovie] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [sortYear, setSortYear] = useState(null);
 
   useEffect(() => {
     setMovies(mockMovies);
@@ -26,12 +26,20 @@ const App = () => {
 
   const filteredMovies = movies.filter((movie) => movie.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
+  if(sortYear === "asc"){
+    filteredMovies.sort((a, b) => a.year - b.year);
+  }
+  else if(sortYear === "desc"){
+    filteredMovies.sort((a, b) => b.year - a.year);
+  }
+
   const displayedMovies = filteredMovies.slice(0, visibleCount);
 
   return (
     <div className="app">
 
-      <Header searchTerm= {searchTerm} setSearchTerm = {setSearchTerm} />
+      <Header searchTerm= {searchTerm} setSearchTerm = {setSearchTerm} 
+      sortYear = {sortYear} setSortYear = {setSortYear}/>
 
       <div className="movie-list">
         {displayedMovies.map((movie) => (
