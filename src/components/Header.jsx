@@ -1,7 +1,7 @@
 import React from 'react'
 import "./styles/Header.css";
 
-const Header = ({searchTerm, setSearchTerm, sortYear, setSortYear}) => {
+const Header = ({searchTerm, setSearchTerm, sortYear, setSortYear, darkMode, setDarkMode}) => {
   return (
     <header>
         <div className='logo'>
@@ -21,7 +21,8 @@ const Header = ({searchTerm, setSearchTerm, sortYear, setSortYear}) => {
                 <option value="desc">year Desending</option>
             </select>
             <label>
-                <input type="checkbox" />
+                <input type="checkbox" checked={darkMode}
+                onClick={() => setDarkMode(!darkMode)}/>
                 DarkMode
             </label>
         </div>

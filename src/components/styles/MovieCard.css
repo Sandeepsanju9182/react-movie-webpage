@@ -1,4 +1,4 @@
-/*Movie Card*/
+/* Movie Card
 .movie-card {
     width: 200px;
     background-color: var(--color-card-light);
@@ -31,8 +31,93 @@
     margin-bottom: 12px;
     font-size: 0.9rem;
     color: #888;
-}
+} */
 
 .app.dark .movie-card p {
     color: #ccc;
+}
+
+/* ==========================================================================
+   Movie Card Styles
+   ========================================================================== */
+
+.movie-card {
+    width: 200px;
+    background-color: var(--color-card-light);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.movie-card img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--color-accent);
+    border-radius: 12px 12px 0 0;
+    transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--color-card-dark);
+}
+
+.movie-card:hover img {
+    transform: scale(1.03);
+}
+
+.movie-card h3 {
+    margin: 12px 0 5px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+    padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-card p {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    color: #888888;
+    transition: color 0.3s ease;
+}
+
+/* ==========================================================================
+   Dark Mode Overrides
+   ========================================================================== */
+
+.app.dark .movie-card {
+    background-color: var(--color-card-dark);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.app.dark .movie-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+.app.dark .movie-card h3 {
+    color: #ffffff;
+}
+
+.app.dark .movie-card p {
+    color: #cccccc;
+}
+
+@media (max-width: 480px){
+    .movie-card {
+    width: 180px;
+    }
+
+    .movie-card img {
+    width: 150px;
+    height: 200px;
+
+}
 }

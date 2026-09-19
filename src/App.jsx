@@ -15,6 +15,7 @@ const App = () => {
   const [modelMovie, setModelMovie] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortYear, setSortYear] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     setMovies(mockMovies);
@@ -36,10 +37,11 @@ const App = () => {
   const displayedMovies = filteredMovies.slice(0, visibleCount);
 
   return (
-    <div className="app">
+    <div className= {darkMode ? "app dark" : "app"}>
 
       <Header searchTerm= {searchTerm} setSearchTerm = {setSearchTerm} 
-      sortYear = {sortYear} setSortYear = {setSortYear}/>
+      sortYear = {sortYear} setSortYear = {setSortYear}
+      darkMode = {darkMode} setDarkMode = {setDarkMode} />
 
       <div className="movie-list">
         {displayedMovies.map((movie) => (

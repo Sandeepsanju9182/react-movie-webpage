@@ -62,41 +62,10 @@ body {
 
 }
 
-/*Movie Card*/
-.movie-card {
-    width: 200px;
-    background-color: var(--color-card-light);
-    border-radius: 16px;
-    overflow: hidden;
-    cursor: pointer;
-    text-align: center;
-    box-shadow: var(--shadow-light);
-}
-.movie-card img {
-    width: 200px;
-    height: 300px;
-    object-fit: cover;
-    border-bottom: 3px solid var(--color-accent);
-    border-radius: 12px 12px  0 0;
-    transition: transform 0.3s ease;
-}
+@media (max-width: 480px){
+    .movie-list {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 90px;
 
-.movie-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px var(--color-card-dark);
 }
-
-.movie-card h3 {
-    margin: 12px 0 5px;
-    font-size: 1.15rem;
-    font-weight: 600;
-}
-.movie-card p {
-    margin-bottom: 12px;
-    font-size: 0.9rem;
-    color: #888;
-}
-
-.app.dark .movie-card p {
-    color: #ccc;
 }
